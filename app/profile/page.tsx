@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { getUserProfile, saveHackerProfile, saveOrganizerProfile, getUserGitHubProjects, uploadProfileImage } from "@/lib/actions/profile-actions"
 import { getHackerDashboardStats, getHackerRecentActivity, getOrganizerDashboardStats } from "@/lib/actions/dashboard-actions"
@@ -56,7 +56,7 @@ import { ProfileRequestsTab } from "@/components/profile-requests-tab"
 import { getFriendCountsDirect as getFriendCounts } from "@/lib/actions/friend-actions-direct"
 import z from "zod"
 
-export default function ProfilePage() {
+function ProfilePageContent() {
   const searchParams = useSearchParams()
   const [isEditing, setIsEditing] = useState(false)
   const [activeTab, setActiveTab] = useState("overview")
@@ -2168,5 +2168,13 @@ export default function ProfilePage() {
         </div>
       )}
     </div>
+  )
+}
+
+export default function ProfilePage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+      <ProfilePageContent />
+    </Suspense>
   )
 }
