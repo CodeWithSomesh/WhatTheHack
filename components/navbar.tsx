@@ -52,13 +52,13 @@ const ListItem = forwardRef<
           ref={ref}
           href={href || "#"}
           className={cn(
-            "block select-none space-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-2 rounded-lg p-3 leading-none no-underline outline-none transition-all border-2 border-transparent",
             className
           )}
           {...props}
         >
           {image && (
-            <div className="relative w-full h-36 mb-2 rounded-md overflow-hidden flex items-center justify-center bg-teal-300">
+            <div className="relative w-full h-36 mb-2 rounded-lg overflow-hidden flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-gray-700">
               <Image
                 src={image}
                 alt={imageAlt || title}
@@ -68,8 +68,8 @@ const ListItem = forwardRef<
               />
             </div>
           )}
-          <div className="text-md font-medium leading-none underline">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-md font-mono font-bold leading-none text-white">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-gray-300 font-geist">
             {children}
           </p>
         </Link>
@@ -93,13 +93,13 @@ const MobileListItem = forwardRef<
       href={href || "#"}
       onClick={onClose}
       className={cn(
-        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+        "block select-none space-y-1.5 rounded-lg p-3 leading-none no-underline outline-none transition-all border-2 border-transparent",
         className
       )}
       {...props}
     >
-      <div className="text-sm font-medium leading-none underline">{title}</div>
-      <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+      <div className="text-sm font-mono font-bold leading-none text-white">{title}</div>
+      <p className="line-clamp-2 text-xs leading-snug text-gray-300 font-geist">
         {children}
       </p>
     </Link>
@@ -144,15 +144,15 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 mt-3 mb-8 md:mb-0 px-4">
       <div className="mx-auto max-w-7xl w-full">
-        <div className="flex items-center justify-between px-6 py-3 bg-background/80 backdrop-blur-xl border border-border rounded-full shadow-lg">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-lg bg-[#08f8a5] flex items-center justify-center shadow-lg">
-              <Image 
+        <div className="flex items-center justify-between px-6 py-3 bg-black/80 backdrop-blur-xl border-2 border-teal-400/30 rounded-full shadow-2xl shadow-teal-400/10 hover:shadow-teal-400/20 transition-all">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center shadow-lg shadow-teal-400/50 group-hover:shadow-teal-400/80 transition-all group-hover:scale-110">
+              <Image
                 src={HackerFlowLogo}
                 alt="HackerFlow Logo"
-                className="rounded-md"/>
+                className="rounded-lg"/>
             </div>
-            <span className="font-bol font-blackops text-2xl tracking-tight text-foreground flex">HackerFlow</span>
+            <span className="font-blackops text-2xl bg-gradient-to-r from-teal-400 via-cyan-400 to-yellow-400 bg-clip-text text-transparent">HackerFlow</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -160,16 +160,16 @@ export function Navbar() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-transparent hover:bg-accent/50">
+                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-transparent hover:bg-teal-500/10 text-gray-300 hover:text-teal-400 font-mono transition-colors">
                     Hackathons
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="min-w-[400px] p-4 bg-black">
-                    <ul className="grid w-[400px] gap-2 md:w-[500px] grid-cols-2  lg:w-[550px]">
+                  <NavigationMenuContent className="min-w-[400px] p-4 bg-gradient-to-b from-gray-900 to-black border-2 border-teal-400/20 shadow-2xl shadow-teal-400/10">
+                    <ul className="grid w-[400px] gap-3 md:w-[500px] grid-cols-2 lg:w-[550px]">
                       <ListItem
                         title="Browse Hackathons"
                         href="/hackathons"
-                        className="hover:bg-gray-600"
-                        image={BrowseHackathonImage} 
+                        className="hover:bg-teal-500/10 hover:border-2 hover:border-teal-400/30 transition-all"
+                        image={BrowseHackathonImage}
                         imageAlt="Browse Hackathons"
                       >
                         Discover upcoming hackathons and join the community.
@@ -177,8 +177,8 @@ export function Navbar() {
                       <ListItem
                         title="Organize Hackathons"
                         href="/organize/step1"
-                        className="hover:bg-gray-600"
-                        image={AnalyticsPageImage} 
+                        className="hover:bg-cyan-500/10 hover:border-2 hover:border-cyan-400/30 transition-all"
+                        image={AnalyticsPageImage}
                         imageAlt="Organize Hackathons"
                       >
                         Create and manage your own hackathon events.
@@ -188,16 +188,16 @@ export function Navbar() {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-transparent hover:bg-accent/50">
+                  <NavigationMenuTrigger className="bg-transparent data-[state=open]:bg-transparent hover:bg-cyan-500/10 text-gray-300 hover:text-cyan-400 font-mono transition-colors">
                     Tools
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent className="min-w-[400px] p-4 bg-black">
+                  <NavigationMenuContent className="min-w-[400px] p-4 bg-gradient-to-b from-gray-900 to-black border-2 border-cyan-400/20 shadow-2xl shadow-cyan-400/10">
                     <ul className="grid w-[400px] gap-3 md:w-[500px] grid-cols-2 lg:w-[550px]">
                       <ListItem
                         title="AI Hackathon Idea Generator"
                         href="/ai-idea-generator"
-                        className="hover:bg-gray-600"
-                        image={AIIdeaGeneratorImage} 
+                        className="hover:bg-yellow-500/10 hover:border-2 hover:border-yellow-400/30 transition-all"
+                        image={AIIdeaGeneratorImage}
                         imageAlt="AI Idea Generation"
                       >
                         Use AI to brainstorm and generate inovative project ideas for hackathons.
@@ -205,8 +205,8 @@ export function Navbar() {
                       <ListItem
                         title="AI Team Matchmaking"
                         href="/find-teammates"
-                        className="hover:bg-gray-600"
-                        image={AIMatchingImage} 
+                        className="hover:bg-pink-500/10 hover:border-2 hover:border-pink-400/30 transition-all"
+                        image={AIMatchingImage}
                         imageAlt="Team Matchmaking"
                       >
                         Find the perfect teammates with AI-powered matching.
@@ -217,7 +217,7 @@ export function Navbar() {
 
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                    <Link href="/search-friends" className="bg-transparent hover:bg-accent/50">
+                    <Link href="/search-friends" className="bg-transparent hover:bg-yellow-500/10 text-gray-300 hover:text-yellow-400 font-mono transition-colors">
                       Discover
                     </Link>
                   </NavigationMenuLink>
@@ -291,16 +291,16 @@ export function Navbar() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <div className="flex gap-2 font-geist">
+                <div className="flex gap-3 font-mono">
                   <Button
                     asChild
-                    className="bg-yellow-400 text-black rounded-sm font-bold hover:text-yellow-500 hover:bg-black border-4 hover:border-yellow-400 shadow-lg hover:shadow-xl transition-all"
+                    className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-blackops rounded-lg hover:opacity-90 border-0 shadow-lg hover:shadow-xl transition-all"
                   >
                     <Link href="/onboarding/user-type">Join HackerFlow</Link>
                   </Button>
                   <Button
                     asChild
-                    className="bg-teal-300 text-black font-bold rounded-sm hover:text-teal-300 hover:bg-black border-4 hover:border-teal-300 shadow-lg hover:shadow-xl transition-all"
+                    className="bg-gray-800/50 backdrop-blur-md border-2 border-gray-700 text-white font-blackops rounded-lg hover:bg-gray-700/50 hover:border-teal-400/50 shadow-lg hover:shadow-teal-400/20 transition-all"
                   >
                     <Link href="/auth/login">Login</Link>
                   </Button>
@@ -311,40 +311,40 @@ export function Navbar() {
             {/* Mobile Menu Button */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden text-white border border-white hover:bg-teal-300 ">
+                <Button variant="ghost" size="icon" className="md:hidden text-teal-400 border-2 border-teal-400/30 hover:bg-teal-500/10 hover:border-teal-400 transition-all rounded-lg">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-black border-gray-800">
+              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gradient-to-b from-gray-900 to-black border-l-2 border-teal-400/30">
                 <div className="flex flex-col h-full">
                   {/* Header */}
-                  <div className="flex items-center justify-between pb-6">
-                    <Link href="/" className="flex items-center gap-2" onClick={closeMobileMenu}>
-                      <div className="h-8 w-8 rounded-lg bg-[#08f8a5] flex items-center justify-center shadow-lg">
-                        <Image 
+                  <div className="flex items-center justify-between pb-6 border-b-2 border-teal-400/20">
+                    <Link href="/" className="flex items-center gap-2 group" onClick={closeMobileMenu}>
+                      <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center shadow-lg shadow-teal-400/50 group-hover:scale-110 transition-transform">
+                        <Image
                           src={HackerFlowLogo}
                           alt="HackerFlow Logo"
-                          className="rounded-md"/>
+                          className="rounded-lg"/>
                       </div>
-                      <span className="font-bol font-blackops text-xl tracking-tight text-foreground">HackerFlow</span>
+                      <span className="font-blackops text-xl bg-gradient-to-r from-teal-400 via-cyan-400 to-yellow-400 bg-clip-text text-transparent">HackerFlow</span>
                     </Link>
                   </div>
 
                   {/* Navigation */}
-                  <nav className="flex-1 space-y-2">
+                  <nav className="flex-1 space-y-2 pt-4">
                     {/* Hackathons Section */}
                     <Collapsible open={hackathonsOpen} onOpenChange={setHackathonsOpen}>
-                      <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-800 transition-colors">
+                      <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-mono font-bold text-gray-300 hover:text-teal-400 hover:bg-teal-500/10 border-2 border-transparent hover:border-teal-400/30 transition-all">
                         Hackathons
                         <ChevronDown className={cn("h-4 w-4 transition-transform", hackathonsOpen && "rotate-180")} />
                       </CollapsibleTrigger>
-                      <CollapsibleContent className="space-y-1 px-3">
+                      <CollapsibleContent className="space-y-1 px-3 pt-2">
                         <MobileListItem
                           title="Browse Hackathons"
                           href="/hackathons"
                           onClose={closeMobileMenu}
-                          className="hover:bg-gray-700"
+                          className="hover:bg-teal-500/10 hover:border-2 hover:border-teal-400/30 transition-all rounded-lg"
                         >
                           Discover upcoming hackathons and join the community.
                         </MobileListItem>
@@ -352,7 +352,7 @@ export function Navbar() {
                           title="Organize Hackathons"
                           href="/organize/step1"
                           onClose={closeMobileMenu}
-                          className="hover:bg-gray-700"
+                          className="hover:bg-cyan-500/10 hover:border-2 hover:border-cyan-400/30 transition-all rounded-lg"
                         >
                           Create and manage your own hackathon events.
                         </MobileListItem>
@@ -361,16 +361,16 @@ export function Navbar() {
 
                     {/* Tools Section */}
                     <Collapsible open={toolsOpen} onOpenChange={setToolsOpen}>
-                      <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-800 transition-colors">
+                      <CollapsibleTrigger className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-sm font-mono font-bold text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 border-2 border-transparent hover:border-cyan-400/30 transition-all">
                         Tools
                         <ChevronDown className={cn("h-4 w-4 transition-transform", toolsOpen && "rotate-180")} />
                       </CollapsibleTrigger>
-                      <CollapsibleContent className="space-y-1 px-3">
+                      <CollapsibleContent className="space-y-1 px-3 pt-2">
                         <MobileListItem
                           title="AI Hackathon Idea Generator"
                           href="/ai-idea-generator"
                           onClose={closeMobileMenu}
-                          className="hover:bg-gray-700"
+                          className="hover:bg-yellow-500/10 hover:border-2 hover:border-yellow-400/30 transition-all rounded-lg"
                         >
                           Use AI to brainstorm and generate inovative project ideas for hackathons.
                         </MobileListItem>
@@ -378,7 +378,7 @@ export function Navbar() {
                           title="AI Team Matchmaking"
                           href="/find-teammates"
                           onClose={closeMobileMenu}
-                          className="hover:bg-gray-700"
+                          className="hover:bg-pink-500/10 hover:border-2 hover:border-pink-400/30 transition-all rounded-lg"
                         >
                           Find the perfect teammates with AI-powered matching.
                         </MobileListItem>
@@ -389,30 +389,31 @@ export function Navbar() {
                     <Link
                       href="/search-friends"
                       onClick={closeMobileMenu}
-                      className="block rounded-lg px-3 py-2 text-sm font-medium hover:bg-gray-800 transition-colors"
+                      className="block rounded-lg px-4 py-3 text-sm font-mono font-bold text-gray-300 hover:text-yellow-400 hover:bg-yellow-500/10 border-2 border-transparent hover:border-yellow-400/30 transition-all"
                     >
                       Discover
                     </Link>
                   </nav>
 
                   {/* Mobile User Section */}
-                  <div className="border-t border-gray-800 pt-6 mt-auto">
+                  <div className="border-t-2 border-teal-400/20 pt-6 mt-auto">
                     {userEmail ? (
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-3 px-3 py-2">
-                          <Avatar className="h-8 w-8 bg-teal-400">
-                            <AvatarFallback className="font-bol font-blackops text-sm">{initials(userEmail)}</AvatarFallback>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 px-3 py-3 rounded-lg bg-gradient-to-r from-teal-500/10 to-cyan-500/10 border-2 border-teal-400/20">
+                          <Avatar className="h-10 w-10 bg-gradient-to-br from-teal-400 to-cyan-500 ring-2 ring-teal-400/30">
+                            <AvatarFallback className="font-blackops text-black text-sm">{initials(userEmail)}</AvatarFallback>
                           </Avatar>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium truncate">{userEmail}</p>
+                            <p className="text-xs font-mono text-gray-400">Signed in as</p>
+                            <p className="text-sm font-mono font-bold text-white truncate">{userEmail}</p>
                           </div>
                         </div>
-                        
-                        <div className="space-y-1">
+
+                        <div className="space-y-2">
                           <Link
                             href="/profile"
                             onClick={closeMobileMenu}
-                            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-800 transition-colors"
+                            className="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 hover:text-teal-400 hover:bg-teal-500/10 border-2 border-transparent hover:border-teal-400/30 transition-all"
                           >
                             <User className="h-4 w-4" />
                             Profile
@@ -420,24 +421,16 @@ export function Navbar() {
                           <Link
                             href="/dashboard"
                             onClick={closeMobileMenu}
-                            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-800 transition-colors"
+                            className="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-mono text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/10 border-2 border-transparent hover:border-cyan-400/30 transition-all"
                           >
-                            <User className="h-4 w-4" />
+                            <LayoutDashboard className="h-4 w-4" />
                             Dashboard
                           </Link>
-                          {/* <Link
-                            href="/settings"
-                            onClick={closeMobileMenu}
-                            className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-gray-800 transition-colors"
-                          >
-                            <Settings className="h-4 w-4" />
-                            Settings
-                          </Link> */}
-                          
+
                           <form action={signOut} className="w-full">
-                            <button 
-                              type="submit" 
-                              className="flex items-center gap-2 w-full rounded-lg px-3 py-2 text-sm text-red-500 hover:bg-gray-800 transition-colors"
+                            <button
+                              type="submit"
+                              className="flex items-center gap-3 w-full rounded-lg px-4 py-2.5 text-sm font-mono text-red-400 hover:text-white hover:bg-red-500/10 border-2 border-transparent hover:border-red-400/30 transition-all"
                               onClick={closeMobileMenu}
                             >
                               <LogOut className="h-4 w-4" />
@@ -447,13 +440,22 @@ export function Navbar() {
                         </div>
                       </div>
                     ) : (
-                      <Button
-                        asChild
-                        className="w-full bg-[#08f8a5] text-black font-black hover:text-white hover:bg-teal-600 shadow-lg hover:shadow-xl transition-all"
-                        onClick={closeMobileMenu}
-                      >
-                        <Link href="/onboarding/user-type">Join HackerFlow</Link>
-                      </Button>
+                      <div className="space-y-2">
+                        <Button
+                          asChild
+                          className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-blackops rounded-lg hover:opacity-90 border-0 shadow-lg hover:shadow-xl transition-all"
+                          onClick={closeMobileMenu}
+                        >
+                          <Link href="/onboarding/user-type">Join HackerFlow</Link>
+                        </Button>
+                        <Button
+                          asChild
+                          className="w-full bg-gray-800/50 backdrop-blur-md border-2 border-gray-700 text-white font-blackops rounded-lg hover:bg-gray-700/50 hover:border-teal-400/50 shadow-lg hover:shadow-teal-400/20 transition-all"
+                          onClick={closeMobileMenu}
+                        >
+                          <Link href="/auth/login">Login</Link>
+                        </Button>
+                      </div>
                     )}
                   </div>
                 </div>
