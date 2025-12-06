@@ -60,7 +60,7 @@ export default function WinnersPage() {
       getHackathonById(hackathonId),
     ])
 
-    if (winnersResult.success) setWinners(winnersResult.data)
+    if (winnersResult.success) setWinners(winnersResult.data || [])
     if (hackathonResult.success) setHackathon(hackathonResult.data)
 
     // Then fetch teams or participants based on hackathon type
@@ -70,11 +70,11 @@ export default function WinnersPage() {
       if (isTeamHackathon) {
         // Fetch teams for team-based hackathons
         const teamsResult = await getHackathonTeams(hackathonId)
-        if (teamsResult.success) setTeams(teamsResult.data)
+        if (teamsResult.success) setTeams(teamsResult.data || [])
       } else {
         // Fetch participants for individual hackathons
         const participantsResult = await getHackathonParticipants(hackathonId, { limit: 1000 })
-        if (participantsResult.success) setParticipants(participantsResult.data)
+        if (participantsResult.success) setParticipants(participantsResult.data || [])
       }
     }
 

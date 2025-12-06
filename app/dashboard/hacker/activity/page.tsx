@@ -100,7 +100,7 @@ export default function ActivityPage() {
       // ============================================================================
       const result = await getHackerRecentActivity(undefined, 50)
       if (result.success) {
-        setActivities(result.data)
+        setActivities(result.data || [])
       }
     }
 

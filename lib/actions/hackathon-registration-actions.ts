@@ -264,7 +264,8 @@ export async function registerForHackathon(
     }
 
     // Increment teams count if team was created
-    if (teamId) {
+    const isTeamRegistration = !!teamId;
+    if (isTeamRegistration) {
       console.log('📝 Incrementing teams count...');
       try {
         await supabase.rpc('increment_hackathon_teams', {
@@ -278,7 +279,7 @@ export async function registerForHackathon(
     }
 
     // Send email notification to organizer if team was created
-    if (teamId) {
+    if (isTeamRegistration) {
       console.log('📝 Sending email notification to organizer...');
       try {
         // Fetch hackathon details

@@ -59,7 +59,7 @@ export default function OrganizerHackathonsPage() {
     })
 
     if (result.success) {
-      setHackathons(result.data)
+      setHackathons(result.data || [])
       setPagination(result.pagination)
     }
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -62,7 +62,7 @@ import { PaymentModal } from '@/components/payment-modal'
 
 type SectionKey = 'banner' | 'basic' | 'timeline' | 'about' | 'prizes' | 'dates' | 'faq' | 'organizers' | 'sponsors' | 'requirements' | 'eligibility'
 
-export default function OrganizeStep3Page() {
+function OrganizeStep3PageContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [open, setOpen] = useState(false)
@@ -3043,4 +3043,13 @@ export default function OrganizeStep3Page() {
         />
       </div>
     </div>
-  )}
+  )
+}
+
+export default function OrganizeStep3Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OrganizeStep3PageContent />
+    </Suspense>
+  )
+}

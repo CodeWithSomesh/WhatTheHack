@@ -29,14 +29,8 @@ export default function ApprovalsPage() {
   const [rejectionReason, setRejectionReason] = useState('')
   const [isProcessing, setIsProcessing] = useState(false)
   const [viewDetailsModal, setViewDetailsModal] = useState(false)
-  // ===== DUMMY DATA STATE - REMOVE BEFORE PRODUCTION =====
-  const [useDummyData, setUseDummyData] = useState(false)
-  // ========================================================
 
   useEffect(() => {
-    // ===== DUMMY DATA INITIALIZATION - REMOVE BEFORE PRODUCTION =====
-    setUseDummyData(isDummyDataEnabled())
-    // ================================================================
     loadPendingHackathons()
   }, [])
 

@@ -40,7 +40,6 @@ export default function AllHackathonsPage() {
   const [hackathons, setHackathons] = useState<any[]>([])
   const [filteredHackathons, setFilteredHackathons] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
-  const [isAdmin, setIsAdmin] = useState(false)
 
   // Filters
   const [searchQuery, setSearchQuery] = useState('')
@@ -69,7 +68,6 @@ export default function AllHackathonsPage() {
       return
     }
 
-    setIsAdmin(true)
     loadHackathons()
   }
 

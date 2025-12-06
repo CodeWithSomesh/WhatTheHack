@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
     }
 
     if (pendingResult.success) {
-      setPendingCount(pendingResult.data.length)
+      setPendingCount(pendingResult.data?.length || 0)
     }
 
     setLoading(false)

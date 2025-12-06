@@ -241,7 +241,6 @@ export const DUMMY_REVENUE_OVER_TIME = [
 // Generate comprehensive dummy hackathons for analytics
 export const DUMMY_HACKATHONS = (() => {
   const hackathons = []
-  const statuses = ['published', 'draft', 'waiting_for_approval']
   const statusCounts = { published: 98, draft: 37, waiting_for_approval: 17 }
 
   let id = 1
@@ -271,7 +270,7 @@ export const DUMMY_HACKATHONS = (() => {
 
 // Generate comprehensive dummy registrations for analytics
 export const DUMMY_REGISTRATIONS = (() => {
-  const registrations = []
+  const registrations: any[] = []
   const monthsAgo = [5, 4, 3, 2, 1, 0] // 6 months
   const countsPerMonth = [145, 178, 192, 215, 238, 187]
 

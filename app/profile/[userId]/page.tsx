@@ -203,7 +203,7 @@ export default function UserProfilePage() {
         // Load recent activities
         const activitiesResult = await getHackerRecentActivity(userId, 5)
         if (activitiesResult.success) {
-          setRecentActivities(activitiesResult.data)
+          setRecentActivities(activitiesResult.data || [])
         }
 
         // Load earned badges

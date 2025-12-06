@@ -36,8 +36,6 @@ import { Sidebar, SidebarHeader, SidebarContent, SidebarFooter, SidebarNav, Side
 import { getUserNotifications, markNotificationAsRead, markAllNotificationsAsRead, checkAndAwardBadges } from '@/lib/actions/dashboard-actions'
 import { signOut } from '@/app/utils/actions'
 import { DummyDataToggle } from '@/components/ui/dummy-data-toggle'
-import Image from 'next/image'
-import HackerFlowLogo from '@/assets/hackerflow-logo.png'
 
 interface Notification {
   id: string
@@ -130,7 +128,7 @@ export default function HackerDashboardLayout({
   async function loadNotifications() {
     const result = await getUserNotifications(undefined, false)
     if (result.success) {
-      setNotifications(result.data)
+      setNotifications(result.data || [])
       setUnreadCount(result.unreadCount || 0)
     }
   }
@@ -200,12 +198,8 @@ export default function HackerDashboardLayout({
     <>
       <SidebarHeader className="border-b border-gray-800">
         <Link href="/" className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-lg bg-teal-400 flex items-center justify-center shadow-lg flex-shrink-0">
-            <Image
-              src={HackerFlowLogo}
-              alt="HackerFlow Logo"
-              className="rounded-md"
-            />
+          <div className="h-10 w-10 rounded-lg bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center shadow-lg flex-shrink-0 font-blackops text-white text-xl">
+            HF
           </div>
           {open && (
             <span className="font-blackops text-2xl text-white">HackerFlow</span>
@@ -280,12 +274,8 @@ export default function HackerDashboardLayout({
                 <div className="flex flex-col h-full">
                   <div className="p-6 border-b border-gray-800">
                     <Link href="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
-                      <div className="h-10 w-10 rounded-lg bg-teal-400 flex items-center justify-center shadow-lg">
-                        <Image
-                          src={HackerFlowLogo}
-                          alt="HackerFlow Logo"
-                          className="rounded-md"
-                        />
+                      <div className="h-10 w-10 rounded-lg bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center shadow-lg font-blackops text-white text-xl">
+                        HF
                       </div>
                       <span className="font-blackops text-2xl text-white">HackerFlow</span>
                     </Link>
@@ -338,12 +328,8 @@ export default function HackerDashboardLayout({
             </Sheet>
 
             <div className="md:hidden flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-teal-400 flex items-center justify-center">
-                <Image
-                  src={HackerFlowLogo}
-                  alt="HackerFlow Logo"
-                  className="rounded-md"
-                />
+              <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-teal-400 to-cyan-500 flex items-center justify-center font-blackops text-white text-sm">
+                HF
               </div>
               <span className="font-blackops text-xl text-white">HackerFlow</span>
             </div>

@@ -121,8 +121,8 @@ export async function POST(request: Request) {
 
       try {
         const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
-        console.log(`✅ Team completion email sent to ${member.email}:`, data.messageId);
-        return { success: true, email: member.email, messageId: data.messageId };
+        console.log(`✅ Team completion email sent to ${member.email}:`, (data as any).messageId);
+        return { success: true, email: member.email, messageId: (data as any).messageId };
       } catch (error: any) {
         console.error(`❌ Failed to send email to ${member.email}:`, error);
         return { success: false, email: member.email, error: error.message };

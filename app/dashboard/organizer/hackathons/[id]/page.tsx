@@ -72,8 +72,8 @@ export default function HackathonDetailPage() {
       totalParticipants: (participantsResult.pagination?.total || 0),
       teamParticipants: teamParticipants || 0,
       individualParticipants: individualParticipants || 0,
-      totalTeams: teamsResult.success ? teamsResult.data.length : 0,
-      winnersCount: winnersResult.success ? winnersResult.data.length : 0,
+      totalTeams: teamsResult.success ? (teamsResult.data || []).length : 0,
+      winnersCount: winnersResult.success ? (winnersResult.data || []).length : 0,
     })
 
     setLoading(false)

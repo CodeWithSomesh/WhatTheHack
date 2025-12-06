@@ -189,7 +189,7 @@ export function OrganizersBentoGrid() {
                     <Image
                       src={SecuredIcon}
                       alt="3D Illustration of Dashboard"
-                      className="rotate-6 hover:rotate-0 transition-all"
+                      className="rotate-6 ml-16 hover:rotate-0 transition-all"
                       draggable="false"
                     />
                   </motion.div>

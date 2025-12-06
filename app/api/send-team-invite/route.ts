@@ -100,7 +100,7 @@ export async function POST(request: Request) {
     try {
       const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
       console.log('✅ Brevo email sent successfully:', data);
-      return NextResponse.json({ success: true, data, messageId: data.messageId });
+      return NextResponse.json({ success: true, data, messageId: (data as any).messageId });
     } catch (error: any) {
       console.error('❌ Brevo error:', error);
       return NextResponse.json({

@@ -122,7 +122,7 @@ export default function HackerHackathonsPage() {
       })
 
       if (result.success) {
-        setData(result.data)
+        setData(result.data || [])
         setPagination(result.pagination)
       }
     }

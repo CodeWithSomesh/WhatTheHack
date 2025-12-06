@@ -168,7 +168,7 @@ export default function OrganizerDashboardOverview() {
       ])
 
       if (statsResult.success) setStats(statsResult.data)
-      if (hackathonsResult.success) setRecentHackathons(hackathonsResult.data)
+      if (hackathonsResult.success) setRecentHackathons(hackathonsResult.data || [])
       if (analyticsResult.success) setAnalytics(analyticsResult.data)
     }
 

@@ -141,7 +141,7 @@ export default function AnalyticsPage() {
       ])
 
       if (analyticsResult.success) setAnalytics(analyticsResult.data)
-      if (hackathonsResult.success) setHackathons(hackathonsResult.data)
+      if (hackathonsResult.success) setHackathons(hackathonsResult.data || [])
     }
 
     setLoading(false)
@@ -445,7 +445,7 @@ export default function AnalyticsPage() {
                     cx="50%"
                     cy="50%"
                     labelLine={true}
-                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                    label={({ name, percent }: any) => `${name}: ${(percent * 100).toFixed(0)}%`}
                     outerRadius={100}
                     fill="#8884d8"
                     dataKey="value"

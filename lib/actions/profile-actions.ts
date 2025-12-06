@@ -188,9 +188,8 @@ export async function testDatabaseConnection() {
 //                           ↓
 //          INSERT (new user) or UPDATE (existing user)
 export async function saveHackerProfile(
-  formData: HackerProfileData, 
-  githubToken?: string,
-  githubUserData?: any
+  formData: HackerProfileData,
+  githubToken?: string
 ) {
   try {
     const supabase = await createClient();

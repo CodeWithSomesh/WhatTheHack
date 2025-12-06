@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { getPendingHackathons, approveHackathon, rejectHackathon, getRevenueStats, getAllHackathonsForAdmin } from '@/lib/actions/admin-actions'
+import { approveHackathon, rejectHackathon, getRevenueStats, getAllHackathonsForAdmin } from '@/lib/actions/admin-actions'
 import { FileCheck, CheckCircle, XCircle, Eye, FileText, Building, Calendar, ExternalLink, Filter } from 'lucide-react'
 import { showCustomToast } from '@/components/toast-notification'
 import {
@@ -34,14 +34,8 @@ export default function ApprovalsPage() {
   const [viewDetailsModal, setViewDetailsModal] = useState(false)
   const [filterStatus, setFilterStatus] = useState<FilterStatus>('pending')
   const [stats, setStats] = useState<any>(null)
-  // ===== DUMMY DATA STATE - REMOVE BEFORE PRODUCTION =====
-  const [useDummyData, setUseDummyData] = useState(false)
-  // ========================================================
 
   useEffect(() => {
-    // ===== DUMMY DATA INITIALIZATION - REMOVE BEFORE PRODUCTION =====
-    setUseDummyData(isDummyDataEnabled())
-    // ================================================================
     loadData()
   }, [])
 

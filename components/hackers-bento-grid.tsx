@@ -239,9 +239,13 @@ export function HackersBentoGrid() {
                   </div>
                   <h3 className="text-3xl font-blackops text-white">Discover Epic Hackathons</h3>
                 </div>
-                <p className="text-gray-300 font-geist flex-grow">
-                  Browse thousands of hackathons across Malaysia. Filter by prize pool, location, and themes. Your next big win awaits!
-                </p>
+
+                <div>
+                  <p className="text-gray-300 font-geist flex-grow text-lg">
+                    Browse thousands of hackathons across Malaysia. Filter by prize pool, location, and themes. Your next big win awaits!
+                  </p>
+                </div>
+                
 
                 <div className="my-4 w-full ">
                   <Image
@@ -268,6 +272,7 @@ export function HackersBentoGrid() {
                     </div>
                     <p className="text-gray-400 text-xs font-mono">RM 30K Prize • 5 days left</p>
                   </div>
+                  
                 </div>
               </div>
             </Card>
@@ -322,7 +327,7 @@ export function HackersBentoGrid() {
                   </div>
 
                   <div className="flex flex-col justify-between">
-                    <div className="p-4 bg-gray-800/50 border-2 border-gray-700 rounded-xl mb-3">
+                    <div className="p-4 bg-gray-800/50 border-2 border-gray-700 rounded-xl mb-4">
                       <div className="flex items-center gap-2 mb-3">
                         <Star className="w-5 h-5 text-yellow-400" />
                         <p className="text-white font-mono font-bold text-sm">Top Skills</p>

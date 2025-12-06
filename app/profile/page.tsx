@@ -270,7 +270,7 @@ export default function ProfilePage() {
         // Load recent activities
         const activitiesResult = await getHackerRecentActivity(undefined, 5)
         if (activitiesResult.success) {
-          setRecentActivities(activitiesResult.data)
+          setRecentActivities(activitiesResult.data || [])
         }
 
         // Load earned badges
@@ -349,9 +349,7 @@ export default function ProfilePage() {
           {
             ...validationResult.data,
             profileImage: userData.profileImage
-          },
-          undefined,
-          undefined
+          }
         );
         
         if (result.success) {

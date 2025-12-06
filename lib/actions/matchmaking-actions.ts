@@ -6,10 +6,8 @@ import {
   UserProfile,
   HackathonStats,
   GitHubStats,
-  CompatibilityResult,
   MatchingFactors
 } from '@/lib/algorithms/matchmaking'
-import { createNotification } from '@/lib/actions/dashboard-actions'
 
 // =====================================================
 // TYPE DEFINITIONS
@@ -23,6 +21,7 @@ export interface MatchProfile extends UserProfile {
   compatibilityScore: number;
   matchingFactors: MatchingFactors;
   recentProjects: RecentProject[];
+  matchedAt?: string | null;
 }
 
 export interface RecentProject {
@@ -295,6 +294,7 @@ async function fetchRecentProjects(userId: string): Promise<RecentProject[]> {
 /**
  * Get the next match profile for the user
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function getNextMatch(filters?: Partial<MatchPreferences>) {
   try {
     const supabase = await createClient();
@@ -737,7 +737,6 @@ export async function getMatchInsight(targetUserId: string) {
       .single();
 
     if (insertError) {
-      console.error('Error inserting insight:', insertError);
       // Return the calculated data even if we couldn't store it
       return {
         success: true,

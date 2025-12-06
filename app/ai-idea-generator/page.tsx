@@ -1010,11 +1010,11 @@ export default function AIIdeaGenerator() {
                           h1: ({ children }) => <h1 className="text-lg font-bold mb-2 mt-3 first:mt-0">{children}</h1>,
                           h2: ({ children }) => <h2 className="text-base font-bold mb-2 mt-3 first:mt-0">{children}</h2>,
                           h3: ({ children }) => <h3 className="text-sm font-bold mb-1 mt-2 first:mt-0">{children}</h3>,
-                          code: ({ inline, children }: { inline?: boolean; children: React.ReactNode }) =>
+                          code: ({ inline, children, ...props }: any) =>
                             inline ? (
-                              <code className="bg-gray-700 px-1.5 py-0.5 rounded text-xs">{children}</code>
+                              <code className="bg-gray-700 px-1.5 py-0.5 rounded text-xs" {...props}>{children}</code>
                             ) : (
-                              <code className="block bg-gray-900 p-2 rounded my-2 text-xs overflow-x-auto">{children}</code>
+                              <code className="block bg-gray-900 p-2 rounded my-2 text-xs overflow-x-auto" {...props}>{children}</code>
                             ),
                           strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
                           em: ({ children }) => <em className="italic">{children}</em>,

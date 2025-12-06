@@ -91,7 +91,7 @@ export default function TeamsPage() {
       // ============================================================================
       const result = await getHackerTeamMemberships()
       if (result.success) {
-        setTeams(result.data)
+        setTeams(result.data || [])
       }
     }
 

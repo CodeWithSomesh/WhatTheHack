@@ -15,7 +15,7 @@ export const mockMatchProfiles: MatchProfile[] = [
     frameworks: ['React', 'Node.js', 'TensorFlow', 'FastAPI'],
     experience_level: 'Advanced',
     github_username: 'sarahchen',
-    profileImage: null,
+    profileImage: undefined,
     hackathonStats: {
       participated: 12,
       won: 4,
@@ -83,7 +83,7 @@ export const mockMatchProfiles: MatchProfile[] = [
     frameworks: ['Docker', 'Kubernetes', 'AWS', 'Terraform'],
     experience_level: 'Advanced',
     github_username: 'ahmadrizal',
-    profileImage: null,
+    profileImage: undefined,
     hackathonStats: {
       participated: 15,
       won: 5,
@@ -143,7 +143,7 @@ export const mockMatchProfiles: MatchProfile[] = [
     frameworks: ['React', 'Next.js', 'Tailwind CSS', 'Figma'],
     experience_level: 'Intermediate',
     github_username: 'meilingw',
-    profileImage: null,
+    profileImage: undefined,
     hackathonStats: {
       participated: 8,
       won: 2,
@@ -202,7 +202,7 @@ export const mockMatchProfiles: MatchProfile[] = [
     frameworks: ['Flutter', 'React Native', 'Firebase'],
     experience_level: 'Intermediate',
     github_username: 'rajkumar',
-    profileImage: null,
+    profileImage: undefined,
     hackathonStats: {
       participated: 10,
       won: 3,
@@ -262,7 +262,7 @@ export const mockMatchProfiles: MatchProfile[] = [
     frameworks: ['Pandas', 'NumPy', 'Scikit-learn', 'Matplotlib'],
     experience_level: 'Beginner',
     github_username: 'emilytan',
-    profileImage: null,
+    profileImage: undefined,
     hackathonStats: {
       participated: 4,
       won: 1,

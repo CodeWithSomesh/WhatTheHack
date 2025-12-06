@@ -42,18 +42,18 @@ export default function ParticipantsPage() {
     // Fetch winners for all tabs
     const winnersResult = await getHackathonWinners(hackathonId)
     if (winnersResult.success) {
-      setWinners(winnersResult.data)
+      setWinners(winnersResult.data || [])
     }
 
     if (typeFilter === 'team') {
       // Fetch teams from hackathon_teams table
       const result = await getHackathonTeams(hackathonId)
       if (result.success) {
-        setTeams(result.data)
+        setTeams(result.data || [])
         setPagination({
           page: 1,
-          limit: result.data.length,
-          total: result.data.length,
+          limit: (result.data || []).length,
+          total: (result.data || []).length,
           totalPages: 1,
         })
       }
@@ -67,7 +67,7 @@ export default function ParticipantsPage() {
       })
 
       if (result.success) {
-        setParticipants(result.data)
+        setParticipants(result.data || [])
         setPagination(result.pagination)
       }
     }
@@ -91,7 +91,7 @@ export default function ParticipantsPage() {
   async function handleExport() {
     const result = await exportParticipants(hackathonId, 'csv')
     if (result.success) {
-      const blob = new Blob([result.data], { type: 'text/csv' })
+      const blob = new Blob([result.data || ''], { type: 'text/csv' })
       const url = window.URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url

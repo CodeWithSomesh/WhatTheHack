@@ -80,7 +80,7 @@ export default function CalendarPage() {
       // ============================================================================
       const result = await getOrganizerHackathons(undefined, { limit: 1000 })
       if (result.success) {
-        setHackathons(result.data)
+        setHackathons(result.data || [])
       }
     }
 

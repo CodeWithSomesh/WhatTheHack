@@ -159,7 +159,7 @@ export default function OrganizeStep1Page() {
     }
   }
 
-  const showLocationField = mode === 'physical' || mode === 'hybrid'
+  const showLocationField = mode === 'offline' || mode === 'hybrid'
 
   const onError = () => {
     showCustomToast('error', 'Please fill up all the necessary fields')
@@ -303,15 +303,15 @@ export default function OrganizeStep1Page() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setValue('mode', 'physical')}
+                  onClick={() => setValue('mode', 'offline')}
                   className={`flex items-center gap-3 p-4 rounded-md border transition-colors ${
-                    mode === 'physical' ? 'border-teal-400 bg-teal-500/10' : 'border-gray-700 bg-gray-900/40 hover:bg-gray-800/40'
+                    mode === 'offline' ? 'border-teal-400 bg-teal-500/10' : 'border-gray-700 bg-gray-900/40 hover:bg-gray-800/40'
                   }`}
                 >
                   <div className="w-9 h-9 rounded-md bg-blue-500/20 text-blue-400 flex items-center justify-center">
                     <Building className="w-5 h-5" />
                   </div>
-                  <span className="font-mono text-white">Physical</span>
+                  <span className="font-mono text-white">Offline</span>
                 </button>
                 <button
                   type="button"

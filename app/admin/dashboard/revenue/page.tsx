@@ -41,7 +41,7 @@ export default function RevenuePage() {
     }
 
     if (overTimeResult.success) {
-      setRevenueOverTime(overTimeResult.data)
+      setRevenueOverTime(overTimeResult.data || [])
     }
 
     setLoading(false)

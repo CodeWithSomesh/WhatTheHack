@@ -29,8 +29,6 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Sidebar, SidebarHeader, SidebarContent, SidebarFooter, SidebarNav, SidebarNavItem, useSidebar } from '@/components/ui/sidebar'
 import { signOut } from '@/app/utils/actions'
-import Image from 'next/image'
-import HackerFlowLogo from '@/assets/hackerflow-logo.png'
 import { checkAdminAccess } from '@/lib/actions/admin-actions'
 // ===== DUMMY DATA IMPORT - REMOVE BEFORE PRODUCTION =====
 import { DummyDataToggle } from '@/components/ui/dummy-data-toggle'
@@ -46,11 +44,11 @@ export default function AdminDashboardLayout({
   const { open } = useSidebar()
   const [user, setUser] = useState<any>(null)
   const [profile, setProfile] = useState<any>(null)
-  const [role, setRole] = useState<string>('admin')
   const [isSuperadmin, setIsSuperadmin] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   // ===== DUMMY DATA STATE - REMOVE BEFORE PRODUCTION =====
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [useDummyData, setUseDummyData] = useState(false)
   // ========================================================
 
@@ -77,7 +75,6 @@ export default function AdminDashboardLayout({
     }
 
     setUser(user)
-    setRole(accessCheck.role || 'admin')
     setIsSuperadmin(accessCheck.isSuperadmin || false)
 
     // Load profile
